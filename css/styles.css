@@ -159,8 +159,16 @@ body {
 .site-nav .link:focus {
   color: var(--accent-color);
 }
+
 .site-nav .link.current {
   color: var(--accent-color);
+}
+
+  left: 0;
+  bottom: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 2px;
 }
 
 /* CONTACTS */
@@ -340,6 +348,33 @@ body {
   margin-right: var(--card-set-gap);
 }
 
+/* Позиціонування на img */
+.work-list-thumb {
+  position: relative;
+
+  width: 370px;
+  height: auto;
+
+  display: flex;
+}
+.work-list-text {
+  position: absolute;
+  bottom: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  width: 100%;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.142;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background-color: rgba(47, 48, 58, 0.8);
+  color: var(--primary-white-color);
+}
+
 /* СЕКЦИЯ НАША КОМАНДА */
 .section-team {
   background-color: var(--button-bgr-color);
@@ -517,6 +552,39 @@ body {
   color: var(--primary-white-color);
 }
 
+/* Modal window */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-height: 581px;
+  min-width: 528px;
+  padding: 15px;
+
+  background: var(--primary-white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
 /*  PAGE ПОРТФОЛИО*/
 
 /* BUTTON-FILTERS */
@@ -603,4 +671,55 @@ body {
 .cards-set .card-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+/* Позиціонування Card-set */
+
+.card-thumb {
+  position: relative;
+
+  width: 370px;
+  height: 294px;
+}
+
+.text-hover {
+  position: absolute;
+  width: 100%;
+  color: var(--primary-white-color);
+
+  padding: 63px 24px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 100%;
+
+  font-size: 18px;
+  line-height: 1.56;
+  /* or 156% */
+  letter-spacing: 0.03em;
+  opacity: 0;
+}
+
+.card-thumb:hover .text-hover {
+  opacity: 1;
+}
+
+.card-thumb:hover::before {
+  opacity: 1;
+}
+
+.card-thumb::before {
+  content: '';
+  display: inline-block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  opacity: 0;
 }
