@@ -590,18 +590,26 @@ body {
   height: 100%;
 
   background: rgba(0, 0, 0, 0.2);
+
+  transition: opacity var(--time-cubic), visibility var(--time-cubic);
 }
 
 .backdrop.is-hidden {
-  /* opacity: 0; */
+  visibility: hidden;
+  opacity: 0;
   pointer-events: none;
+
+  transition: opacity var(--time-cubic), visibility var(--time-cubic);
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: transform var(--time-cubic);
+}
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   min-height: 581px;
   min-width: 528px;
@@ -611,6 +619,38 @@ body {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--time-cubic);
+}
+
+.btn-icon {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+
+  display: flex;
+  align-items: center;
+  padding: 6px;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  background: var(--primary-white-color);
+  color: var(--primary-black-color);
+
+  cursor: pointer;
+
+  transition: color var(--time-cubic);
+}
+.btn-icon:hover,
+.btn-icon:focus {
+  color: var(--accent-color);
+}
+.cross-icon {
+  fill: currentColor;
 }
 
 /*  PAGE ПОРТФОЛИО*/
